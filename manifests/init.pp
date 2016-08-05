@@ -1,7 +1,5 @@
 class ufw {
-  package { 'ufw':
-    ensure => present,
-  }
+  ensure_packages ( 'ufw', { 'ensure' => 'present', } )
 
   Package['ufw'] -> Exec['ufw-default-deny'] -> Exec['ufw-enable']
 
